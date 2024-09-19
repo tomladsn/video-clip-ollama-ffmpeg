@@ -1,42 +1,50 @@
-import fs from 'fs';
 import ollama from 'ollama';
+import fs from 'fs';
+import SrtParser from 'srt-parser-2';
 
-// Function to extract timestamps and write to a file
-async function extractTimestampFromSRT(srtFilePath, outputFilePath) {
-  try {
-    // Read the SRT file content
-    const srtContent = fs.readFileSync(srtFilePath, 'utf8');
+// Step 1: Parse the SRT file
+const parseSrtFile = (filePath) => {
+  const srtContent = fs.readFileSync(filePath, 'utf-8');
+  const parser = new SrtParser();
+  const parsedData = parser.fromSrt(srtContent);
+  return parsedData;
+};
 
-    // Modify the prompt to ask LLaMA to extract only the timestamps
-    const prompt = 
-   ` Here is a transcription from a video. Pick out the best 30 seconds (very important it is 30 seconds at minimum") to clip in the video:
-    
-    ${srtContent}
-    
-Only return the time stamp of  multiple minimum of 30 seconds of clip per each duration in the transcription like "start - end" in a txt format starting with hh:mm:ss,SSS - hh:mm:ss,SSS and only that. Do not write any other words apart from the druation of the clip you picked from the transcription, just provide the time durations, nothing more.
-   pls in this format only "00:01:22,000 - 00:02:17,300
-00:00:05,200 - 00:00:35,599" do not write words like "here is whatever" just all the duration alone so it is reusable for api` ;
-
-    // Send the modified prompt to LLaMA
-    const response = await ollama.chat({
-      model: 'llama3.1',
-      messages: [{ role: 'user', content: prompt }],
-    });
-
-    // Get the extracted timestamps and remove backticks if present
-    let extractedTimestamps = response.message.content.replace(/```/g, '').trim();
-
-    // Write the response to a file, appending the content to keep it updated
-    fs.appendFileSync(outputFilePath, `\n${extractedTimestamps}\n`, 'utf8');
-
-    console.log('Extracted Timestamps written to:', outputFilePath);
-  } catch (error) {
-    console.error('Error:', error);
-  }
+// Step 2: Generate prompt to Llama
+const generateBest30SecondsPrompt = (transcript) => {
+  return `Here is a transcription:\n\n${transcript}\n\nPlease choose at least one 30 seconds i can clip off the transcription and your answer should only be in this format "{
+  "clips": [
+    {
+      "clip_id": "clip_1",
+      "start_time": "00:00:00",
+      "end_time": "00:00:30"
+    },
+    {
+      "clip_id": "clip_2",
+      "start_time": "00:00:31",
+      "end_time": "00:01:00"
+    }
+  ]
 }
+"`;
+};
+
+// Step 3: Send request to Llama model
+const getBest30Seconds = async (transcript) => {
+  const message = { role: 'user', content: generateBest30SecondsPrompt(transcript) };
+  const response = await ollama.chat({ model: 'llama3.1', messages: [message] });
+  return response.message.content;
+};
+
+// Step 4: Main function
+const main = async (srtFilePath) => {
+  const parsedTranscript = parseSrtFile(srtFilePath);
+  // Concatenate all the text in the SRT file for the prompt
+  const fullTranscript = parsedTranscript.map(entry => entry.text).join(' ');
+  
+  const best30Seconds = await getBest30Seconds(fullTranscript);
+  console.log(best30Seconds);
+};
 
 // Example usage
-const srtFilePath = './trans.srt'; // Replace with your actual SRT file path
-const outputFilePath = './timestamps.txt'; // File to store extracted timestamps
-
-extractTimestampFromSRT(srtFilePath, outputFilePath);
+main('trans.srt');
