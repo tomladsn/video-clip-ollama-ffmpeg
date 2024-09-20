@@ -12,7 +12,7 @@ const parseSrtFile = (filePath) => {
 
 // Step 2: Generate prompt to Llama
 const generateBest30SecondsPrompt = (transcript) => {
-  return `Here is a transcription:\n\n${transcript}\n\nPlease choose at least one 30 seconds i can clip off the transcription and your answer should only be in this format "{
+  return `Here is a transcription:\n\n${transcript}\n\nPlease choose at least multiple 30 seconds i can clip off the transcription and your answer should only be in this format just write the json "{
   "clips": [
     {
       "clip_id": "clip_1",
@@ -43,7 +43,13 @@ const main = async (srtFilePath) => {
   const fullTranscript = parsedTranscript.map(entry => entry.text).join(' ');
   
   const best30Seconds = await getBest30Seconds(fullTranscript);
-  console.log(best30Seconds);
+  try {
+    const parsedResponse = JSON.parse(best30Seconds);
+    fs.writeFileSync('clipsd.json', JSON.stringify(parsedResponse, null, 2), 'utf-8');
+    console.log('AI response saved to best_30_seconds.json');
+  } catch (error) {
+    console.error('Failed to save AI response:', error);
+  }
 };
 
 // Example usage
