@@ -1,0 +1,104 @@
+1
+00:00:00,000 --> 00:00:01,733
+Python, a high-level interpreted
+
+2
+00:00:01,733 --> 00:00:03,466
+programming language famous for
+
+3
+00:00:03,466 --> 00:00:05,200
+its zen-like code.
+
+4
+00:00:05,200 --> 00:00:06,440
+It's arguably the most
+
+5
+00:00:06,440 --> 00:00:07,680
+popular language in the
+
+6
+00:00:07,679 --> 00:00:08,919
+world because it's easy
+
+7
+00:00:08,919 --> 00:00:10,160
+to learn, yet practical
+
+8
+00:00:10,160 --> 00:00:11,400
+for serious projects.
+
+9
+00:00:11,400 --> 00:00:12,449
+In fact, you're watching
+
+10
+00:00:12,449 --> 00:00:13,499
+this YouTube video in
+
+11
+00:00:13,499 --> 00:00:14,549
+a Python web application
+
+12
+00:00:14,549 --> 00:00:15,599
+right now.
+
+13
+00:00:15,599 --> 00:00:16,839
+It was created by
+
+14
+00:00:16,839 --> 00:00:18,079
+Guido van Rossum and
+
+15
+00:00:18,079 --> 00:00:19,319
+released in 1991, who
+
+16
+00:00:19,319 --> 00:00:20,559
+named it after Monty
+
+17
+00:00:20,559 --> 00:00:21,800
+Python's Flying Circus,
+
+18
+00:00:21,800 --> 00:00:22,699
+which is why you'll
+
+19
+00:00:22,699 --> 00:00:23,599
+sometimes find spam and
+
+20
+00:00:23,600 --> 00:00:24,500
+eggs instead of foo
+
+21
+00:00:24,500 --> 00:00:25,399
+and bar in code
+
+22
+00:00:25,400 --> 00:00:26,300
+samples.
+
+23
+00:00:26,300 --> 00:00:27,300
+It's commonly used to
+
+24
+00:00:27,300 --> 00:00:28,300
+build server-side applications, like
+
+25
+00:00:28,300 --> 00:00:29,300
+web apps with the
+
+26
+00:00:29,300 --> 00:00:30,300
+Jamf.
+
