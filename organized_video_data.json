@@ -1,0 +1,83 @@
+Here is the data in an organized JSON format:
+
+```
+[
+  {
+    "title": "Putting forth the pillars of our civilization, the exhausted middle",
+    "start_time": "57:35",
+    "end_time": "01:10:35"
+  },
+  {
+    "title": "A secular thinker on the spiritual battle we are all engaged in",
+    "start_time": "01:00:14",
+    "end_time": "01:00:14"
+  },
+  {
+    "title": "The necessity of narrative, translating for the secular",
+    "start_time": "01:04:11",
+    "end_time": "01:09:49"
+  },
+  {
+    "title": "The title toward the demonic, using AI to map the pattern of the Logos",
+    "start_time": "01:09:49",
+    "end_time": "01:14:25"
+  },
+  {
+    "title": "Prayer, revelation, and the spirit of the question",
+    "start_time": "01:11:16",
+    "end_time": "01:17:59"
+  },
+  {
+    "title": "Brick-in-the-wall science, hypothesis generation",
+    "start_time": "01:14:25",
+    "end_time": "01:20:49"
+  },
+  {
+    "title": "The relation between openness and divergent associations, hierarchies of mutational repair",
+    "start_time": "01:17:59",
+    "end_time": "01:22:50"
+  },
+  {
+    "title": "A new convergence on a shared perspective, the need of God to answer prayers",
+    "start_time": "01:20:49",
+    "end_time": "01:27:41"
+  },
+  {
+    "title": "Richard Dawkins, winning with your own audience rather than making substantive progress",
+    "start_time": "01:22:50",
+    "end_time": "01:34:40"
+  },
+  {
+    "title": "What the ancients knew about the delusion of being, metaphorical models in science",
+    "start_time": "01:27:41",
+    "end_time": "01:35:03"
+  },
+  {
+    "title": "Dawkins’ one error in “The Selfish Gene”",
+    "start_time": "01:34:40",
+    "end_time": "02:00:00"
+  },
+  {
+    "title": "Coming up",
+    "start_time": "00:00",
+    "end_time": "03:35"
+  },
+  {
+    "title": "Intro",
+    "start_time": "00:35",
+    "end_time": "04:10"
+  },
+  {
+    "title": "Bret and Heather at Peterson Academy",
+    "start_time": "03:36",
+    "end_time": "06:19"
+  },
+  {
+    "title": "The social media approach to learning: iterative feedback",
+    "start_time": "06:19",
+    "end_time": "10:00"
+  }
+]
+```
+
+Note that I've used the `[]` syntax for an array, and each object in the array represents a single timestamped section. The keys are `title`, `start_time`, and `end_time`.
