@@ -1,65 +1,53 @@
-import ollama from 'ollama';
-import fs from 'fs';
+import { readFile, writeFile } from 'fs';
 
-// Step 1: Read the text file
-const readTextFile = (filePath) => {
-  try {
-    const content = fs.readFileSync(filePath, 'utf-8');
-    return content;
-  } catch (error) {
-    console.error("Error reading the text file:", error);
-    throw error; // Propagate the error
+// Read the file (ensure the path is correct)
+readFile('video_description.txt', 'utf8', (err, data) => {
+  if (err) {
+    console.error('Error reading file:', err);
+    return;
   }
-};
 
-// Step 2: Generate prompt for Llama
-const generateBest30SecondsPrompt = (transcript) => {
-  return `Here is a web scrap of a youtube video timestamp :\n\n${transcript}\n\n Please convert it to a json format simailar to this but the problem is there is no end time in the txt file but you will use the next time stamp as the end of the initial like this {
-  "clips": [
-    {
-      "clip_id": "clip_1",
-      "start_time": "00:00:00",
-      "end_time": "00:00:31"
-    },
-    {
-      "clip_id": "clip_2",
-      "start_time": "00:00:31",
-      "end_time": "00:01:00"
+  // Split the file content into lines
+  const lines = data.split('\n');
+
+  // Initialize a result array to hold the unique sections with timestamps
+  let result = [];
+  let lastTitle = '';
+
+  // Iterate over the lines to process the text
+  for (let i = 0; i < lines.length; i++) {
+    let line = lines[i].trim(); // Remove leading/trailing spaces
+
+    // If it's a timestamp (matches the time pattern)
+    if (/^\d{2}:\d{2}:\d{2}$/.test(line)) {
+      // Add the last valid title and timestamp to the result
+      if (lastTitle && !result.find(item => item.title === lastTitle)) {
+        result.push({ title: lastTitle, startTime: line });
+      }
+    } else if (line && !line.startsWith("Coming up")) {
+      // If it's a section title (not empty and not "Coming up")
+      lastTitle = line;
     }
-  ]
-}`;
-};
-
-// Step 3: Send request to Llama model
-const getBest30Seconds = async (transcript) => {
-  const message = { role: 'user', content: generateBest30SecondsPrompt(transcript) };
-  try {
-    const response = await ollama.chat({ model: 'llama3.1', messages: [message] });
-    return response.message.content;
-  } catch (error) {
-    console.error("Error during Llama request:", error);
-    throw error; // Propagate the error
   }
-};
 
-// Step 4: Main function
-const main = async (txtFilePath) => {
-  try {
-    const fullTranscript = readTextFile(txtFilePath);
+  // Now calculate the endTime for each section
+  for (let i = 0; i < result.length - 1; i++) {
+    result[i].endTime = result[i + 1].startTime;
+  }
+  // For the last entry, set endTime to null
+  if (result.length > 0) {
+    result[result.length - 1].endTime = null;
+  }
 
-    const best30Seconds = await getBest30Seconds(fullTranscript);
-    
-    try {
-      const parsedResponse = JSON.parse(best30Seconds);
-      fs.writeFileSync('clips.json', JSON.stringify(parsedResponse, null, 2), 'utf-8');
-      console.log('AI response saved to clips.json');
-    } catch (error) {
-      console.error('Failed to save AI response:', error);
+  // Display the cleaned-up result
+  console.log(JSON.stringify(result, null, 2));
+
+  // Optional: Write the result to a new JSON file
+  writeFile('output.json', JSON.stringify(result, null, 2), err => {
+    if (err) {
+      console.error('Error writing file:', err);
+    } else {
+      console.log('Formatted JSON written to output.json');
     }
-  } catch (error) {
-    console.error('Error in the main function:', error);
-  }
-};
-
-// Example usage
-main('video_description.txt');
+  });
+});
