@@ -1,132 +1,158 @@
 [
   {
-    "title": "Intro",
-    "startTime": "00:00:35",
-    "endTime": "00:03:36"
+    "index": "1",
+    "startTime": "00:00:00,000",
+    "endTime": "00:00:01,733",
+    "subtitleText": "Python, a high-level interpreted"
   },
   {
-    "title": "Bret and Heather at Peterson Academy",
-    "startTime": "00:03:36",
-    "endTime": "00:06:19"
+    "index": "2",
+    "startTime": "00:00:01,733",
+    "endTime": "00:00:03,466",
+    "subtitleText": "programming language famous for"
   },
   {
-    "title": "The social media approach to learning: iterative feedback",
-    "startTime": "00:06:19",
-    "endTime": "00:12:01"
+    "index": "3",
+    "startTime": "00:00:03,466",
+    "endTime": "00:00:05,200",
+    "subtitleText": "its zen-like code."
   },
   {
-    "title": "Combating the evolution of corruption",
-    "startTime": "00:12:01",
-    "endTime": "00:17:37"
+    "index": "4",
+    "startTime": "00:00:05,200",
+    "endTime": "00:00:06,440",
+    "subtitleText": "It's arguably the most"
   },
   {
-    "title": "The benefits of recorded lectures, future goals for in-person conventions",
-    "startTime": "00:17:37",
-    "endTime": "00:20:27"
+    "index": "5",
+    "startTime": "00:00:06,440",
+    "endTime": "00:00:07,680",
+    "subtitleText": "popular language in the"
   },
   {
-    "title": "Cost of entry, managing bad actors, and the hierarchy of curation",
-    "startTime": "00:20:27",
-    "endTime": "00:26:04"
+    "index": "6",
+    "startTime": "00:00:07,679",
+    "endTime": "00:00:08,919",
+    "subtitleText": "world because it's easy"
   },
   {
-    "title": "Why Hillsdale College has a 1% dropout rate in the first year",
-    "startTime": "00:26:04",
-    "endTime": "00:30:36"
+    "index": "7",
+    "startTime": "00:00:08,919",
+    "endTime": "00:00:10,160",
+    "subtitleText": "to learn, yet practical"
   },
   {
-    "title": "The difference between censorship and refereeing, leveraging evolution to continuously self-improve",
-    "startTime": "00:30:36",
-    "endTime": "00:32:58"
+    "index": "8",
+    "startTime": "00:00:10,160",
+    "endTime": "00:00:11,400",
+    "subtitleText": "for serious projects."
   },
   {
-    "title": "Elon Musk: adapting solutions faster than those who seek to game the system",
-    "startTime": "00:32:58",
-    "endTime": "00:34:45"
+    "index": "9",
+    "startTime": "00:00:11,400",
+    "endTime": "00:00:12,449",
+    "subtitleText": "In fact, you're watching"
   },
   {
-    "title": "The orthodoxy of the past and predicting the future",
-    "startTime": "00:34:45",
-    "endTime": "00:36:21"
+    "index": "10",
+    "startTime": "00:00:12,449",
+    "endTime": "00:00:13,499",
+    "subtitleText": "this YouTube video in"
   },
   {
-    "title": "Rescue the Republic - “We’re hoping this will be an event the way Woodstock was a music festival”",
-    "startTime": "00:36:21",
-    "endTime": "00:40:02"
+    "index": "11",
+    "startTime": "00:00:13,499",
+    "endTime": "00:00:14,549",
+    "subtitleText": "a Python web application"
   },
   {
-    "title": "The propositional must be surrounded by the imagistic, the opportunity for discovery",
-    "startTime": "00:40:02",
-    "endTime": "00:42:14"
+    "index": "12",
+    "startTime": "00:00:14,549",
+    "endTime": "00:00:15,599",
+    "subtitleText": "right now."
   },
   {
-    "title": "Propositional intelligence — and what actually makes you wise",
-    "startTime": "00:42:14",
-    "endTime": "00:45:57"
+    "index": "13",
+    "startTime": "00:00:15,599",
+    "endTime": "00:00:16,839",
+    "subtitleText": "It was created by"
   },
   {
-    "title": "The edge traversed by comedians, the advent of the laugh track",
-    "startTime": "00:45:57",
-    "endTime": "00:45:57"
+    "index": "14",
+    "startTime": "00:00:16,839",
+    "endTime": "00:00:18,079",
+    "subtitleText": "Guido van Rossum and"
   },
   {
-    "title": "The radical distortion of music, “music used to be a living entity”",
-    "startTime": "00:45:57",
-    "endTime": "00:57:35"
+    "index": "15",
+    "startTime": "00:00:18,079",
+    "endTime": "00:00:19,319",
+    "subtitleText": "released in 1991, who"
   },
   {
-    "title": "Putting forth the pillars of our civilization, the exhausted middle",
-    "startTime": "00:57:35",
-    "endTime": "01:00:14"
+    "index": "16",
+    "startTime": "00:00:19,319",
+    "endTime": "00:00:20,559",
+    "subtitleText": "named it after Monty"
   },
   {
-    "title": "A secular thinker on the spiritual battle we are all engaged in",
-    "startTime": "01:00:14",
-    "endTime": "01:04:11"
+    "index": "17",
+    "startTime": "00:00:20,559",
+    "endTime": "00:00:21,800",
+    "subtitleText": "Python's Flying Circus,"
   },
   {
-    "title": "The necessity of narrative, translating for the secular",
-    "startTime": "01:04:11",
-    "endTime": "01:09:49"
+    "index": "18",
+    "startTime": "00:00:21,800",
+    "endTime": "00:00:22,699",
+    "subtitleText": "which is why you'll"
   },
   {
-    "title": "The title toward the demonic, using AI to map the pattern of the Logos",
-    "startTime": "01:09:49",
-    "endTime": "01:11:16"
+    "index": "19",
+    "startTime": "00:00:22,699",
+    "endTime": "00:00:23,599",
+    "subtitleText": "sometimes find spam and"
   },
   {
-    "title": "Prayer, revelation, and the spirit of the question",
-    "startTime": "01:11:16",
-    "endTime": "01:14:25"
+    "index": "20",
+    "startTime": "00:00:23,600",
+    "endTime": "00:00:24,500",
+    "subtitleText": "eggs instead of foo"
   },
   {
-    "title": "Brick-in-the-wall science, hypothesis generation",
-    "startTime": "01:14:25",
-    "endTime": "01:17:59"
+    "index": "21",
+    "startTime": "00:00:24,500",
+    "endTime": "00:00:25,399",
+    "subtitleText": "and bar in code"
   },
   {
-    "title": "The relation between openness and divergent associations, hierarchies of mutational repair",
-    "startTime": "01:17:59",
-    "endTime": "01:20:49"
+    "index": "22",
+    "startTime": "00:00:25,400",
+    "endTime": "00:00:26,300",
+    "subtitleText": "samples."
   },
   {
-    "title": "A new convergence on a shared perspective, the need of God to answer prayers",
-    "startTime": "01:20:49",
-    "endTime": "01:22:50"
+    "index": "23",
+    "startTime": "00:00:26,300",
+    "endTime": "00:00:27,300",
+    "subtitleText": "It's commonly used to"
   },
   {
-    "title": "Richard Dawkins, winning with your own audience rather than making substantive progress",
-    "startTime": "01:22:50",
-    "endTime": "01:27:41"
+    "index": "24",
+    "startTime": "00:00:27,300",
+    "endTime": "00:00:28,300",
+    "subtitleText": "build server-side applications, like"
   },
   {
-    "title": "What the ancients knew about the delusion of being, metaphorical models in science",
-    "startTime": "01:27:41",
-    "endTime": "01:34:40"
+    "index": "25",
+    "startTime": "00:00:28,300",
+    "endTime": "00:00:29,300",
+    "subtitleText": "web apps with the"
   },
   {
-    "title": "Dawkins’ one error in “The Selfish Gene”",
-    "startTime": "01:34:40",
-    "endTime": null
+    "index": "26",
+    "startTime": "00:00:29,300",
+    "endTime": "00:00:30,300",
+    "subtitleText": "Jamf."
   }
 ]
