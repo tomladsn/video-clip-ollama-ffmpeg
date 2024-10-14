@@ -1,36 +1,51 @@
-const { exec } = require('child_process');
-const path = require('path');
+import { readFileSync, writeFileSync } from 'fs';
+import { Ollama } from 'ollama';
 
-const audioFilePath = path.join(__dirname, 'your_audio_file.mp3'); // Replace with your audio file path
+// Read and parse the SRT file
+const srtContent = readFileSync('output/output.srt', 'utf-8');
 
-// Function to run the Python script
-const runWhisperTranscription = (audioPath) => {
-  return new Promise((resolve, reject) => {
-    // Command to run the Python script
-    const command = `python transcribe_audio.py ${audioPath}`;
+// Function to pass transcription to LLaMA
+async function selectBestClipsFromTranscription(transcription) {
+    const ollama = new Ollama();
 
-    exec(command, (error, stdout, stderr) => {
-      if (error) {
-        console.error(`Error executing Whisper script: ${stderr}`);
-        return reject(error);
-      }
+    const prompt = `
+    You are provided with a transcription of a video, including timestamps:
 
-      try {
-        // Parse the result and return the transcription
-        const result = JSON.parse(stdout);
-        resolve(result);
-      } catch (parseError) {
-        reject(parseError);
-      }
+    "${transcription}"
+
+    Please review the entire transcription and suggest the best 30-second sections that would make suitable highlight clips. 
+    Each highlight clip should be exactly 10 seconds long. Make sure that each clip represents a meaningful segment from the transcription. 
+
+    Return the results as a JSON array, where each entry includes the start and end timestamps for the 10-second clip and a brief description explaining why that section was selected.
+    `;
+
+    const response = await ollama.generate({
+        model: "llama3.1",
+        prompt
     });
-  });
-};
 
-// Call the transcription function
-runWhisperTranscription(audioFilePath)
-  .then((transcription) => {
-    console.log('Transcription result:', transcription.text);
-  })
-  .catch((err) => {
-    console.error('Error during transcription:', err);
-  });
+    // Parse the response to extract the JSON part
+    const match = response.response.match(/```json([\s\S]*?)```/);
+    if (match && match[1]) {
+        const cleanJson = match[1].trim();
+
+        try {
+            // Parse the cleaned JSON
+            const parsedJson = JSON.parse(cleanJson);
+
+            // Write the cleaned JSON to a file
+            writeFileSync('selectedclips.json', JSON.stringify(parsedJson, null, 2));
+
+            console.log("Selected Clips in JSON:");
+            console.log(parsedJson);  // Output the cleaned JSON to the terminal
+
+        } catch (err) {
+            console.error("Failed to parse JSON:", err);
+        }
+    } else {
+        console.log("No valid JSON found in the response.");
+    }
+}
+
+// Call the function and display the results
+selectBestClipsFromTranscription(srtContent);

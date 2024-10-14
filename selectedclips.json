@@ -1,0 +1,27 @@
+[
+  {
+    "start": "00:00:01,733",
+    "end": "00:00:11,400",
+    "description": "Introduction to Python programming language and its features"
+  },
+  {
+    "start": "00:00:12,449",
+    "end": "00:00:13,499",
+    "description": "YouTube video being viewed in a Python web application"
+  },
+  {
+    "start": "00:00:16,839",
+    "end": "00:00:19,319",
+    "description": "Introduction to Guido van Rossum and the creation of Python"
+  },
+  {
+    "start": "00:00:22,699",
+    "end": "00:00:23,599",
+    "description": "Reference to Monty Python's Flying Circus and its influence on the language name"
+  },
+  {
+    "start": "00:00:27,300",
+    "end": "00:00:29,300",
+    "description": "Common use case for Python in building server-side applications"
+  }
+]
