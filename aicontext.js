@@ -20,7 +20,7 @@ async function selectBestClipsFromTranscription(transcription) {
     `;
 
     const response = await ollama.generate({
-        model: "llama3.1",
+        model: "llama3.1", 
         prompt
     });
 
